@@ -3,7 +3,7 @@ sudoku-dimacs-creator
 
 Small code snippet to crreate a dimacs file for a sudoku solver
 
-main.rb creates a file
+main.rb creates a DIMACs file containing all logic necessary to solve it
 
 read.rb can read created solution from minisat and print them
 
