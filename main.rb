@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 size = 9
-numbers = 9
+numbers = size
 
 atoms = size * size * numbers
 clauses = 0
