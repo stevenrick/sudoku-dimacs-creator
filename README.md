@@ -1,13 +1,8 @@
 sudoku-dimacs-creator
 =====================
 
-Small code snippet to crreate a dimacs file for a sudoku solver
+The program 'generate.py' creates an input file 'sudoku.in' in DIMACS format for minisat. The program 'show.py' reads minisat's solution from 'sudoku.out' and displays it in a matrix form. This works only if you have installed a SAT solver which reads inputs in DIMACS format.
 
-main.rb creates a DIMACs file containing all logic necessary to solve it
+You can call:
 
-read.rb can read created solution from minisat and print them
-
-
-Assuming you have minisat (http://minisat.se/) installed: 
-run.bat runs everything on a windows environment
-run.sh  runs everything on a linux environment
+./run.sh n to solve a n^2 x n^2 Sudoku problem.
