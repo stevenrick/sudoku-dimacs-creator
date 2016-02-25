@@ -22,6 +22,11 @@ def main():
 	file.close()
 
 	# Skip 'SAT\n' and read the rest of the file
+	# Fails when 'UNSAT\n' is the content
+	if data == 'UNSAT\n':
+		print("No solution found for the randomly generated initial state.")
+		sys.exit()
+
 	data = data[4:len(data)].split(' ')
 
 	# Extract only the valid values

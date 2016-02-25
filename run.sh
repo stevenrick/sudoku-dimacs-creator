@@ -16,11 +16,15 @@ if [[ RED -ne 1 && RED -ne 2 ]]
 fi
 
 SAT=minisat
+INITIAL=initial.state
 INPUT=sudoku.in
 OUTPUT=sudoku.out
 
+echo "Randomly generating the first row, first column and the main diagonal..."
+python sudokuCreator.py $N > $INITIAL
+
 echo "Generating DIMACS format input for $SAT ..."
-python generate.py $N $RED > $INPUT
+python generate.py $N $RED $INITIAL > $INPUT
 
 echo "Input file generated: $INPUT"
 echo "Running SAT solver now..."
