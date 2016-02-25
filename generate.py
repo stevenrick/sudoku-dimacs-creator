@@ -73,7 +73,9 @@ def reduction2(n):
 
 def main():
 	n = int(sys.argv[1])
-	reduction2(n)
+	reduction = int(sys.argv[2])
+	if(reduction == 2):
+		reduction2(n)
 
 if __name__ == '__main__':
 	main()
