@@ -24,11 +24,11 @@ echo "Randomly generating the first row, first column and the main diagonal..."
 python sudokuCreator.py $N > $INITIAL
 
 echo "Generating DIMACS format input for $SAT ..."
-python generate.py $N $RED $INITIAL > $INPUT
+python generateDIMACS.py $N $RED $INITIAL > $INPUT
 
 echo "Input file generated: $INPUT"
 echo "Running SAT solver now..."
 $SAT $INPUT $OUTPUT
 
 echo "Showing Sudoku solution now..."
-python show.py $N $OUTPUT
+python showResult.py $N $OUTPUT

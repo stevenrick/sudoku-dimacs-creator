@@ -1,16 +1,16 @@
 p cnf 64 304 
 c Created by Sudoku Dimacs Creator 
 c Adding random values for first row, first column and main diagonal
-114 0 
-121 0 
-132 0 
-143 0 
-213 0 
+113 0 
+124 0 
+131 0 
+142 0 
+211 0 
 222 0 
 312 0 
 334 0 
-411 0 
-442 0 
+414 0 
+443 0 
 c At least one number in each entry
 111 112 113 114 0 
 121 122 123 124 0 
