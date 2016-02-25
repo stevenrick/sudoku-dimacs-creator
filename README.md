@@ -1,7 +1,7 @@
 sudoku-dimacs-creator
 =====================
 
-The program 'generate.py' creates an input file 'sudoku.in' in DIMACS format for minisat. The program 'show.py' reads minisat's solution from 'sudoku.out' and displays it in a matrix form. This works only if you have installed minisat.
+First, 'generateSudoku.py' randomly generates the first row, column and main diagonal. Then, the program 'generate.py' creates an input file 'sudoku.in' in DIMACS format for minisat. The program 'show.py' reads minisat's solution from 'sudoku.out' and displays it in a matrix form. This works only if you have installed minisat.
 
 You can call:
 
