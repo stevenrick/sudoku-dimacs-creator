@@ -11,6 +11,7 @@ def main():
     if n == size:
         return '1'
 
+
     #setup first row randomly
     sudoku_row = random.sample(range(1,size+1), size)
 
@@ -23,26 +24,7 @@ def main():
     for x in range(1,n):
         col_invalid.append(sudoku_row[x])
 
-    # could be a bug here!
-    # 3    9    5    1    14   16   10   13   15   6    12   7    8    11   4    2   
-    # 16   13                                                          
-    # 14        11                                                      
-    # 1              8                                                   
-    # 5                   16                                              
-    # 13                       14                                          
-    # 12                             4                                       
-    # 4                                   8                                   
-    # 7                                       13                              
-    # 15                                           7                           
-    # 6                                                 16                      
-    # 8                                                      14                  
-    # 10                                                          13              
-    # 9                                                                5           
-    # 2                                                                     1       
-    # 11                                                                         4
-
-    # does this check only for 2X2 submatrix?
-    while((temp_sudoku_col[0] in col_invalid) or (temp_sudoku_col[1] in col_invalid)):
+    while(set(temp_sudoku_col[0:n-1]).intersection(set(col_invalid))):
         random.shuffle(temp_sudoku_col)
     sudoku_col = [sudoku_row[0]] + temp_sudoku_col
 
@@ -82,9 +64,9 @@ def main():
         puzzle[n][n] = [str(sudoku_dia[n]).rjust(len(str(size)))]
 
     #visualize matrix nicely
-    # for row in puzzle:
-    #     print row
-    # print ''
+    for row in puzzle:
+        print row
+    print ''
 
     #output matrix to text file
     output = ""
