@@ -12,11 +12,25 @@ def fit(n, n2):
     fitn += str(n)
     return fitn
 
-def reduction1(n):
+def readInitial(fname):
+	dimacs = ""
+	dimacs += "c Adding random values for first row, first column and main diagonal\n"
+	lines = [word[:-1].split(',') for line in open(fname, 'r') for word in line.split()]
+
+	for i in range(0, len(lines)):
+		for j in range(0, len(lines[i])):
+			value = lines[i][j]
+			if value != '':
+				dimacs += str(i+1) + str(j+1) + value + " 0 \n"
+	
+	#print dimacs
+	return dimacs
+
+def reduction1(n, initial):
     n2      = n * n
     atoms   = n2 * n2 * n2
     clauses = 0
-    dimacs  = ""
+    dimacs  = initial
     digits = len(str(n2))
 
     '''UNDER CONSTRUCTION: NEED TO ADD OTHER CLAUSES TOO'''
@@ -107,11 +121,11 @@ def reduction1(n):
 
     print(dimacs),
 
-def reduction2(n):
+def reduction2(n, initial):
     n2      = n * n
     atoms   = n2 * n2 * n2
     clauses = 0
-    dimacs  = ""
+    dimacs  = initial
     digits = len(str(n2))
 
     dimacs += "c At least one number in each entry\n"
@@ -169,11 +183,14 @@ def reduction2(n):
 def main():
     n = int(sys.argv[1])
     reduction = int(sys.argv[2])
+    initial = sys.argv[3]
+
+    initialClauses = readInitial(initial)
     
     if reduction == 1:
-        reduction1(n)
+        reduction1(n, initialClauses)
     elif reduction == 2:
-        reduction2(n)
+        reduction2(n, initialClauses)
 
 if __name__ == '__main__':
     main()
