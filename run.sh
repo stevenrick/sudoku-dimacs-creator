@@ -21,7 +21,11 @@ INPUT=sudoku.in
 OUTPUT=sudoku.out
 
 echo "Randomly generating the first row, first column and the main diagonal..."
-python sudokuCreator.py $N > $INITIAL
+#python sudokuCreator.py $N > $INITIAL
+python createProblem.py $N > $INITIAL
+
+echo "The Sudoku problem is..."
+python showProblem.py $INITIAL
 
 echo "Generating DIMACS format input for $SAT ..."
 python generateDIMACS.py $N $RED $INITIAL > $INPUT
@@ -30,5 +34,4 @@ echo "Input file generated: $INPUT"
 echo "Running SAT solver now..."
 $SAT $INPUT $OUTPUT
 
-echo "Showing Sudoku solution now..."
 python showResult.py $N $OUTPUT
